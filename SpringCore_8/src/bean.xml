@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+
+
+<bean id="factoryClass" class="com.mainapp.ObjectFactory"></bean>
+
+<bean id="emp" 
+class="com.mainapp.EmployeeBean" 
+factory-bean="factoryClass"
+factory-method="customObject"
+
+>
+
+<!-- factory-method="customObject" -->
+<!-- <constructor-arg name="companyCode" value="QWERYTY"></constructor-arg>
+Enter key: correct => qwerty otherwise pqrs  
+Here we can not do this logic in simple bean tag
+For solution above we can use Factory-method.
+ -->
+</bean>
+<bean
+class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>
+</beans>

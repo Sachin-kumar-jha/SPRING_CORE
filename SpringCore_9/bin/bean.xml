@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+
+
+<!--This is parent bean and this is not representing any class
+Here if we will not providing class so here exception happens that parent bean
+instantiation failed because here associated class not found
+So here we need to explicitly told to spring that we will not want to create
+parent bean object so we know that abstract class never instantiated so here 
+in parent bean we set it's property abstract="true"
+-->
+<bean id="parent" abstract="true">
+<property name="countrycode" value="112233"></property>
+<property name="countryName" value="India"></property>
+<property name="policy" value="XYZ"></property>
+</bean>
+
+
+<!-- For inheriting properties from parent bean
+ we use parent property in child bean and pass parent 
+ id.
+ So here repeating same property by using parent child removed.
+ By this out line of code reduces and looks clean.
+ -->
+<bean id="emp" class="com.test.Employee" parent="parent"/>
+
+
+<bean id="std" class="com.test.Student" parent="parent"/>
+
+
+<bean id="client" class="com.test.Client" parent="parent"/>
+
+
+
+</beans>

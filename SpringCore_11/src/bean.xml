@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+
+
+
+<!-- <bean id ="emp" class="com.test.Employee">
+
+This is by using setters
+<property name="defaultListOfBooks" >
+Here default implementation of list is arraylist so here we simple
+doing default implementation by using list tag
+<list>
+ <value>Java</value>
+ <value>Python</value>
+ <value>AI</value>
+</list>
+</property>
+
+<constructor-arg name="defaultListOfBooks">
+<list>
+ <value>Java</value>
+ <value>Python</value>
+ <value>AI</value>
+</list>
+</constructor-arg>
+
+ 
+ <property name="defaultListOfAccounts">
+ <list>
+    
+ </list>
+ </property>
+ 
+</bean> -->
+ 
+ <bean id="ac1" class="com.test.Account">
+ <constructor-arg name="an" value="9090"></constructor-arg>
+ <constructor-arg name="aname" value="SBI"></constructor-arg>
+ 
+ </bean>
+ <bean id="ac2" class="com.test.Account">
+ <constructor-arg name="an" value="9091"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+ 
+ <!-- 
+ <bean id="emp" class="com.test.Employee">
+  <constructor-arg name="defaultListOfAccounts">
+ <list>
+     <ref bean="ac1" />
+     <ref bean="ac2"/>
+ </list>
+ </constructor-arg>
+ <property name="defaultListOfAccounts">
+ <list>
+     <ref bean="ac1" />
+     <ref bean="ac2"/>
+ </list>
+ </property>
+ </bean>
+  -->
+ 
+ 
+ 
+ <bean id="emp" class="com.test.Employee">
+  <constructor-arg name="defaultListOfAccounts" ref="list"/>
+
+ </bean>
+ 
+ 
+ <!--STANDALONE-->
+ <util:list id="List" list-class="java.util.LinkedList">
+  <ref bean="ac1"/>
+  <ref bean="ac2"/>
+ </util:list>
+ 
+ 
+ 
+ <!--Seperate Bean tag for userDefined Class-->
+ <bean id="list" class="java.util.LinkedList">
+
+  <constructor-arg>
+  <list>
+  <ref bean="ac1"/>
+  <ref bean="ac2"/>
+  </list>
+  </constructor-arg>
+ </bean>
+ 
+ 
+<!-- STANDALONE LIST-->
+<!-- 
+<util:list id="List" list-class="java.util.LinkedList">
+<value>Java</value>
+<value>PYTHON</value>
+<value>Spring</value>
+</util:list> -->
+
+<!--Using Seperate bean Tag for inbuilt class-->
+<!-- <bean id="List" class="java.util.LinkedList">
+<constructor-arg>
+<list>
+<value>JAVA</value>
+<value>PYTHON</value>
+<value>JSTL</value>
+</list>
+</constructor-arg>
+</bean> -->
+
+
+</beans>
