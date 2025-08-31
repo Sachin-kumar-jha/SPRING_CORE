@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+
+<bean id="emp" class="com.test.Employee">
+<property name="setOfAccount" ref="set"/>
+</bean>
+
+
+<bean id="ac1" class="com.test.Account">
+ <constructor-arg name="an" value="9090"></constructor-arg>
+ <constructor-arg name="aname" value="SBI"></constructor-arg>
+ 
+ </bean>
+ <bean id="ac2" class="com.test.Account">
+ <constructor-arg name="an" value="9091"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ <bean id="ac3" class="com.test.Account">
+ <constructor-arg name="an" value="9092"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+ <bean id="ac4" class="com.test.Account">
+ <constructor-arg name="an" value="9001"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+  <!--STANDALONE-->
+ <util:set id="setp" set-class="java.util.HashSet">
+ <ref bean="ac1"/>
+ <ref bean="ac2"/>
+ </util:set>
+
+<bean id="seta" class="java.util.HashSet">
+<constructor-arg>
+<list>
+<ref bean="ac4"/>
+<ref bean="ac3"/>
+<ref bean="ac2"/>
+<ref bean="ac1"/>
+</list>
+</constructor-arg>
+</bean>
+
+
+<!-- SEPERATE BEAN TAG -->
+<bean id="set" class="java.util.TreeSet">
+<constructor-arg>
+<list>
+<ref bean="ac4"/>
+<ref bean="ac3"/>
+<ref bean="ac2"/>
+<ref bean="ac1"/>
+</list>
+</constructor-arg>
+</bean>
+</beans>
