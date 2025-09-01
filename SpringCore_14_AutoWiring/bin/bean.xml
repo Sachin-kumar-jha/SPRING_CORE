@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        
+        
+
+ <bean id="account1" class="com.test.Account">
+ <constructor-arg name="an" value="9091"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+ <bean id="account2" class="com.test.Account">
+ <constructor-arg name="an" value="9091"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+ <bean id="account" class="com.test.Account">
+ <constructor-arg name="an" value="9091"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+ <bean id="account4" class="com.test.Account">
+ <constructor-arg name="an" value="9091"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+ <bean id="account5" class="com.test.Account">
+ <constructor-arg name="an" value="9094"></constructor-arg>
+ <constructor-arg name="aname" value="SBI"></constructor-arg>
+ </bean>
+ 
+ <bean id="adhar1" class="com.test.Adhar" primary="true">
+ <constructor-arg name="adharNo" value="9091"></constructor-arg>
+ <constructor-arg name="adharName" value="Baban"></constructor-arg>
+ </bean>
+ <bean id="adhar" class="com.test.Adhar">
+ <constructor-arg name="adharNo" value="9092"></constructor-arg>
+ <constructor-arg name="adharName" value="Baban123"></constructor-arg>
+ </bean>
+ 
+  <bean id="list" class="java.util.LinkedList">
+ <constructor-arg>
+ <list>
+ <value>ABC</value>
+ <value>DEF</value>
+ <value>GHI</value>
+ </list>
+ </constructor-arg>
+ </bean>
+ 
+ <bean id="listOfBooks" class="java.util.LinkedList">
+ <constructor-arg>
+ <list>
+ <value>JAVA</value>
+ <value>PYTHON</value>
+ <value>C++</value>
+ </list>
+ </constructor-arg>
+ </bean>
+ 
+ 
+<bean id="emp" class="com.test.Employee" autowire="constructor">
+ 
+ </bean>
+ 
+</beans>

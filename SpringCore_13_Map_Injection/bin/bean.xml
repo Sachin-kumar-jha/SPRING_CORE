@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        
+        
+ <!--Default Map Injection using inbuilt classes-->
+  <!-- <bean id="emp" class="com.test.Employee">
+  USING SETTERS 
+     <property name="mapOfAccount">
+    <map>
+    <entry key="a1" value="Java1"></entry>
+    <entry key="a2" value="Java2"></entry>
+    <entry key="a3" value="Java3"></entry>
+    <entry key="a4" value="Java4"></entry>
+    </map>
+     </property>
+     
+     USING CONSTRUCTOR
+     <constructor-arg name="mapOfAccount">
+     <map>
+    <entry key="a1" value="Java1"></entry>
+    <entry key="a2" value="Java2"></entry>
+    <entry key="a3" value="Java3"></entry>
+    <entry key="a4" value="Java4"></entry>
+    </map>
+     </constructor-arg>
+     
+     <constructor-arg name="mapOfAccount" ref="map2"></constructor-arg>
+  </bean>      -->
+<!--USING STANDALONE-->  
+<!-- <util:map id="map1" map-class="java.util.HashMap">
+ <entry key="a1" value="Java1"></entry>
+    <entry key="a2" value="Java2"></entry>
+    <entry key="a3" value="Java3"></entry>
+    <entry key="a4" value="Java4"></entry>
+</util:map>
+ -->
+<!--Using Seperate Bean Tag-->
+
+<!-- <bean id="map2" class="java.util.HashMap">
+<constructor-arg>
+<map>
+    <entry key="aewwe" value="Java2"></entry>
+    <entry key="a3" value="Java3"></entry>
+    <entry key="a4" value="Java4"></entry>
+</map>
+</constructor-arg>
+</bean> -->
+
+<!--MAP OF USER DEFINED OBJECTS-->
+<bean id="ac1" class="com.test.Account">
+ <constructor-arg name="an" value="9090"></constructor-arg>
+ <constructor-arg name="aname" value="SBI"></constructor-arg>
+ 
+ </bean>
+ <bean id="ac2" class="com.test.Account">
+ <constructor-arg name="an" value="9091"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ <bean id="ac3" class="com.test.Account">
+ <constructor-arg name="an" value="9092"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+ 
+ <bean id="ac4" class="com.test.Account">
+ <constructor-arg name="an" value="9001"></constructor-arg>
+ <constructor-arg name="aname" value="BOB"></constructor-arg>
+ </bean>
+<!--USING SETTERS-->
+<bean id="emp" class="com.test.Employee">
+<property name="mapOfAccouts" ref="map2">
+<!-- <map>
+   <entry  key="aewwe" value-ref="ac1"></entry>
+    <entry key="a3" value-ref="ac2"></entry>
+    <entry key="a4" value-ref="ac3"></entry>
+</map> -->
+</property>
+</bean>
+
+<!--USING STANDALONE-->
+<util:map id="map" map-class="java.util.HashMap">
+ <entry  key="aewwe" value-ref="ac1"></entry>
+    <entry key="a3" value-ref="ac2"></entry>
+    <entry key="a4" value-ref="ac3"></entry>
+</util:map>
+
+<!--SEPERATE BEAN (CUSTOM COLLECTION)-->
+<bean id="map2" class="java.util.HashMap">
+<constructor-arg>
+<map>
+    <entry  key="aewwe" value-ref="ac1"></entry>
+    <entry key="a3" value-ref="ac2"></entry>
+    <entry key="a4" value-ref="ac3"></entry>
+</map>
+</constructor-arg>
+</bean>
+</beans>
